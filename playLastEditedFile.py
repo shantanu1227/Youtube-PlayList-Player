@@ -2,10 +2,20 @@
 
 import os
 import subprocess
-current_dir = os.path.dirname(os.path.realpath(__file__))
-last_file = subprocess.check_output('cd '+current_dir+' && ls -t |head -1', shell=True)
-last_file = os.getcwd()+"/"+last_file[:-1]
-os.system('mplayer "' +last_file+'"')
-os.system('rm "'+last_file+'"')
+import sys
+
+currentDir = os.path.dirname(os.path.realpath(__file__))
+
+lastFile = subprocess.check_output('cd '+currentDir+' && ls -t |head -1', shell=True)
+#Removing the \n from the last
+lastFile = os.getcwd()+"/"+lastFile[:-1]
+
+#Play The song using mplayer
+os.system('mplayer "' +lastFile+'"')
+
+if len(sys.argv) == 0:
+	os.system('rm "'+lastFile+'"')
+elif str(sys.argv).find("save") < 0:
+	os.system('rm "'+lastFile+'"')
 exit()
 #https://www.youtube.com/watch?list=RDmWRsgZuwf_8
