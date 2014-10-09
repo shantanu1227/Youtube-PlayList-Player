@@ -2,6 +2,7 @@ Youtube-PlayList-Player
 =======================
 
 Just Stream the audio from your favourite youtube playlist
+Add your playlist id in the playlists.txt file run youtubePlayer.py
 
 Requirements:
 
